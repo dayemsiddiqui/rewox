@@ -1,8 +1,8 @@
-cd client
+cd frontend
 npm install
 npm run build
 cd ..
-cd server
+cd backend
 npm install
 npm run start
 
