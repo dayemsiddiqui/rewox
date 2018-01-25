@@ -261,8 +261,8 @@ let woxcut = {
       component: OrderForm
     },
     {
-      path: 'livemarket',
-      name: 'Live Market',
+      path: 'review',
+      name: 'Review Responder',
       component: Overview
     }
   ]

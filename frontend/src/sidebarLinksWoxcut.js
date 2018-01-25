@@ -10,33 +10,23 @@ export default [
     path: '/strategies'
   },
   {
-    name: 'Trading Bots',
+    name: 'Reporting',
     icon: 'ti-panel',
-    path: '/bots'
+    path: '/reporting'
   },
   {
-    name: 'Live Market',
+    name: 'Review Responder',
     icon: 'ti-stats-up',
-    path: '/livemarket'
+    path: '/review'
   },
   {
-    name: 'Exchanges',
+    name: 'Integration',
     icon: 'ti-world',
-    path: '/exchanges'
+    path: '/integration'
   },
   {
-    name: 'Transactions',
-    icon: 'ti-credit-card',
-    path: '/transactions'
-  },
-  {
-    name: 'Buy and Sell',
+    name: 'Settings',
     icon: 'ti-money',
-    path: '/orderbook'
-  },
-  {
-    name: 'Marketplace',
-    icon: 'ti-money',
-    path: '/market'
+    path: '/settings'
   }
 ]

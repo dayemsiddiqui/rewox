@@ -6,6 +6,7 @@ import NotFound from '../components/GeneralViews/NotFoundPage.vue'
 
 // Overview
 import Overview from 'src/components/Dashboard/Overview.vue'
+import Review from 'src/components/Dashboard/Review/Review.vue'
 
 // Transactions
 import Transaction from 'src/components/Dashboard/Transactions/Transaction.vue'
@@ -42,21 +43,14 @@ let woxcut = {
       component: Transaction
     },
     {
-      path: 'exchanges',
-      name: 'Exchanges',
+      path: 'integration',
+      name: 'Integrations',
       component: Exchange
     },
     {
-      path: 'bots', // refactor this
-      name: 'Bots',
-      component: Bot, // rethink the user-friendly routing mechanism for strategy as well
-      children: [
-        {
-          path: 'view/:id',
-          name: 'Bot Detail',
-          component: BotDetail
-        }
-      ]
+      path: 'reporting', // refactor this
+      name: 'Reporting',
+      component: Review, // rethink the user-friendly routing mechanism for strategy as well
     },
     {
       path: 'strategies',
@@ -82,9 +76,9 @@ let woxcut = {
       component: OrderForm
     },
     {
-      path: 'livemarket',
-      name: 'Live Market',
-      component: Overview
+      path: 'review',
+      name: 'Review Responder',
+      component: Review,
     }
   ]
 }
