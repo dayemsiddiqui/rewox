@@ -1,28 +1,14 @@
 <template>
   <div>
     <!--Stats cards-->
-  <!--   <div class="row">
+    <div class="row">
       <div class='col-sm-10'>
         <input type="text" placeholder="Type you brand name or other keyword here" style="width: 100%; min-height: 75px; font-size: 25px; text-align: center;" />
       </div>
       <div class="col-sm-2">
         <button class="btn btn-primary btn-fill btn-lg" style="margin-top:10px;">Analyse</button>
       </div>
-      <div class="col-lg-3 col-sm-6" v-for="stats in statsCards">
-        <stats-card>
-          <div class="icon-big text-center" :class="`icon-${stats.type}`" slot="header">
-            <i :class="stats.icon"></i>
-          </div>
-          <div class="numbers" slot="content">
-            <p>{{stats.title}}</p>
-            {{stats.value}}
-          </div>
-          <div class="stats" slot="footer">
-            <i :class="stats.footerIcon"></i> {{stats.footerText}}
-          </div>
-        </stats-card>
-      </div>
-    </div> -->
+    </div>
 
     <div class="row">
       <div class="col-sm-7">

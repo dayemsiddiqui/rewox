@@ -53,17 +53,9 @@ let woxcut = {
       component: Review, // rethink the user-friendly routing mechanism for strategy as well
     },
     {
-      path: 'strategies',
-      name: 'Strategies',
+      path: 'chatbot',
+      name: 'ChatBot',
       component: Strategy,
-      children: [
-        {
-          path: 'create',
-          name: 'Create Strategy',
-          component: Strategy
-          // component: StrategyCreate
-        }
-      ]
     },
     {
       path: 'market',

@@ -4,7 +4,7 @@
   "description": "Boilerplate for woxcut backend",
   "main": "dist",
   "scripts": {
-    "dev": "nodemon -w src --exec \"npm run lint && babel-node src\"",
+    "dev": "nodemon -w src --exec \"babel-node src\"",
     "build": "babel src -s -D -d dist",
     "start": "node dist",
     "prestart": "npm run -s build",
@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "amqplib": "^0.5.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",
     "compression": "^1.5.2",
@@ -24,7 +25,8 @@
     "morgan": "^1.8.0",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
-    "resource-router-middleware": "^0.6.0"
+    "resource-router-middleware": "^0.6.0",
+    "rethinkdbdash": "^2.3.31"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",

@@ -4,21 +4,18 @@ import cors from 'cors'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt'
-var path = require('path');
-var serveStatic = require('serve-static');
-
 import initializeDb from './db'
 import middleware from './middleware'
 import api from './api'
 import config from './config'
 import passport from 'passport'
 import User from './models/userModel'
+var path = require('path')
 
 let app = express()
 app.server = http.createServer(app)
 app.use('/', express.static(path.join(__dirname, '../../frontend/dist')))
-// express.static(path.join(__dirname, 'dist'))
-// logger
+
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'))
 }

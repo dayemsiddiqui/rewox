@@ -5,9 +5,9 @@ export default [
     path: '/overview'
   },
   {
-    name: 'Strategies',
+    name: 'ChatBot',
     icon: 'ti-wand',
-    path: '/strategies'
+    path: '/chatbot'
   },
   {
     name: 'Reporting',
