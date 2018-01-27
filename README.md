@@ -30,3 +30,38 @@ Analyze:
 - Automatically fetch bad reviews of the entity.
 - Determine with parts of the entity people are complaining about
 - Determine with parts of the entity people are liking
+
+Chatbot Platform:
+ - Intents: What action should be taken in response to user's message
+ - Entities: Objects we want to interact with
+
+Key Advantages:
+- Self Hosted
+- Option for entity based answers.
+- Self learning
+
+ Database Structure:
+ - Entities: {
+ 	entity_name : "",
+ 	values: [],
+ }
+
+ - Intent: {
+ 	name: ""
+ 	questions: [],
+ 	answers: [
+ 	{statement: "", isEntityBased: true},
+ 	],
+ 	action: {
+ 		name: "",
+ 		params: [
+ 		{isRequired: true, name: "", entity_name: "", value: ""}
+ 		],
+ 	}
+ 	entities: []
+ }
+
+ - questions: {
+   statement: "",
+   entities: [],
+ } 

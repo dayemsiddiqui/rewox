@@ -15,6 +15,16 @@ var path = require('path')
 let app = express()
 app.server = http.createServer(app)
 app.use('/', express.static(path.join(__dirname, '../../frontend/dist')))
+var io = require('socket.io')(app.server)
+io.on('connection', function(client){
+  console.log("Connected")
+  client.on('event', function(data){
+    console.log("Some event receieved", data)
+  });
+  client.on('disconnect', function(){
+    console.log("Disconnected")
+  });
+});
 
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'))
@@ -66,7 +76,7 @@ initializeDb(db => {
   app.use(middleware({ config, db }))
 
   // api router
-  app.use('/api', api({ config, db }))
+  app.use('/api', api({ config, db}))
 
   app.server.listen(process.env.PORT || config.port)
 

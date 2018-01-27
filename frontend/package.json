@@ -20,11 +20,13 @@
     "easy-pie-chart": "^2.1.7",
     "element-ui": "^1.4.2",
     "es6-promise": "^4.1.1",
+    "fs": "0.0.1-security",
     "fullcalendar": "^3.4.0",
     "google-maps": "^3.2.1",
     "jquery": "^3.2.1",
     "jvectormap": "^2.0.4",
     "perfect-scrollbar": "^0.7.1",
+    "socket.io-client": "^2.0.4",
     "sweetalert2": "^6.6.5",
     "vee-validate": "^2.0.0-rc.14",
     "vue": "^2.3.4",
@@ -32,7 +34,8 @@
     "vue-form-wizard": "^0.6.4",
     "vue-nav-tabs": "^0.5.1",
     "vue-notifyjs": "^0.1.8",
-    "vue-router": "^2.7.0"
+    "vue-router": "^2.7.0",
+    "vue-socket.io": "^2.1.1-b"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

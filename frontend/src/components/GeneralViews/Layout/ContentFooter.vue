@@ -21,8 +21,7 @@
       <div class="copyright pull-right">
         &copy; Coded with
         <i class="fa fa-heart heart"></i> by
-        <a href="#" target="_blank">MADS</a>.
-        Designed by <a href="#" target="_blank">SDAM</a>.
+        <a href="#" target="_blank">Dayem Siddiqui</a>.
       </div>
     </div>
   </footer>

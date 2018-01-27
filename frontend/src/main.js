@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueSocketio from 'vue-socket.io'
 import VueRouter from 'vue-router'
 import VueNotify from 'vue-notifyjs'
 import VeeValidate from 'vee-validate'
@@ -10,6 +11,7 @@ import App from './App.vue'
 import GlobalComponents from './gloablComponents'
 import GlobalDirectives from './globalDirectives'
 import SideBar from './components/UIComponents/SidebarPlugin'
+
 
 // router setup
 // import routes from './routes/routes' // use this to restore original routes
@@ -30,6 +32,7 @@ Vue.use(GlobalComponents)
 Vue.use(VueNotify)
 Vue.use(SideBar, {sidebarLinks: sidebarLinks})
 Vue.use(VeeValidate)
+Vue.use(VueSocketio, 'http://localhost:1234')
 locale.use(lang)
 
 // configure router

@@ -1,16 +1,8 @@
 import { Router } from 'express'
-import Bot from '../models/botModel'
-
 const bot = Router()
 
-bot.get('/', (req, res) => {
-  Bot.find()
-        .then(bots => {
-          return res.status(200).json(bots)
-        })
-        .catch((err) => {
-          return res.status(400).json(err)
-        })
+bot.post('/respond', (req, res) => {
+	res.json({status: 'success', response: { statement: 'This is a dummy response'}})
 })
 
 export default bot

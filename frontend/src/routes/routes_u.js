@@ -6,6 +6,10 @@ import NotFound from '../components/GeneralViews/NotFoundPage.vue'
 
 // Overview
 import Overview from 'src/components/Dashboard/Overview.vue'
+import Entities from 'src/components/Dashboard/Entities.vue'
+import Training from 'src/components/Dashboard/Training.vue'
+import Dashboard from 'src/components/Dashboard/Dashboard.vue'
+import Chatbot from 'src/components/Dashboard/Chatbot.vue'
 import Review from 'src/components/Dashboard/Review/Review.vue'
 
 // Transactions
@@ -33,14 +37,19 @@ let woxcut = {
   component: Layout,
   children: [
     {
-      path: 'overview',
+      path: 'dashboard',
       name: 'Dashboard',
+      component: Dashboard
+    },
+    {
+      path: 'intents',
+      name: 'Intents',
       component: Overview
     },
     {
-      path: 'transactions',
-      name: 'Transactions',
-      component: Transaction
+      path: 'chatbot',
+      name: 'Chatbot',
+      component: Chatbot
     },
     {
       path: 'integration',
@@ -49,13 +58,13 @@ let woxcut = {
     },
     {
       path: 'reporting', // refactor this
-      name: 'Reporting',
-      component: Review, // rethink the user-friendly routing mechanism for strategy as well
+      name: 'Training',
+      component: Training, // rethink the user-friendly routing mechanism for strategy as well
     },
     {
-      path: 'chatbot',
-      name: 'ChatBot',
-      component: Strategy,
+      path: 'entities',
+      name: 'Entities',
+      component: Entities,
     },
     {
       path: 'market',

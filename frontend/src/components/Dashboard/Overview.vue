@@ -1,149 +1,90 @@
 <template>
   <div>
+    <notifications transition-name="notification-list" transition-mode="out-in"></notifications>
     <!--Stats cards-->
     <div class="row">
-      <div class="col-lg-3 col-sm-6" v-for="stats in statsCards">
-        <stats-card>
-          <div class="icon-big text-center" :class="`icon-${stats.type}`" slot="header">
-            <i :class="stats.icon"></i>
+    <div class="col-sm-8">
+        <input type="text" placeholder="Intent Name" v-model="intent_name" v-on:change="onChange" style="width: 100%;">
+    </div>
+        <button class="btn btn-primary btn-sm" v-on:click="save"> Save </button>
+    </div>
+    <br> 
+
+    <div class="row">
+    <div class="col-sm-8">
+        <label>User says</label>
+        <input type="text" placeholder="Add user expression" v-model="question" v-on:keyup.enter="addQuestion" style="width: 100%;">
+    </div>
+    </div>
+
+    <div class="row">
+      <br>
+      <div class="col-sm-8">
+          <div class="card" v-for="item in questions">
+            <div class="card-content" >
+              {{ item }}
+            </div>
           </div>
-          <div class="numbers" slot="content">
-            <p>{{stats.title}}</p>
-            {{stats.value}}
-          </div>
-          <div class="stats" slot="footer">
-            <i :class="stats.footerIcon"></i> {{stats.footerText}}
-          </div>
-        </stats-card>
       </div>
     </div>
 
     <div class="row">
-        <!-- <div class="col-lg-8 col-sm-12"> -->
-        <div class="col-lg-4">
-          <div class="card">
-            <div class="card-header">
-              <h4 class="card-title">Top Performing Bots</h4>
-              <!-- <p class="category">All products that were shipped</p> -->
-            </div>
+      <br>
+      <div class="col-sm-8">
+         <label>Actions</label>
+         <input type="text" placeholder="Action Name" style="width: 100%;">
+      </div>
+    </div>
+
+    <div class="row">
+      <br>
+      <div class="col-sm-8">
+         <label>Entities</label>
+         <table class="table">
+           <thead>
+             <tr>
+               <th>Required</th>
+               <th>Param Name</th>
+               <th>Entity</th>
+               <th>Value</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td> <p-switch v-model="switches.defaultOn" type="primary" on-text="ON" off-text="OFF"></p-switch></td>
+               <td>Anna</td>
+               <td>Pitt</td>
+               <td>35</td>
+              </tr>
+           </tbody>
+         </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <br>
+      <div class="col-sm-8">
+         <label>Answers</label>
+         <input type="text" placeholder="Text Response" v-model="answer" v-on:keyup.enter="addAnswer" style="width: 100%;">
+      </div>
+    </div>
+
+    <div class="row">
+      <br>
+      <div class="col-sm-8">
+          <div class="card" v-for="item in answers">
             <div class="card-content">
-              <div class="row">
-                <!-- <div class="col-md-7"> -->
-                  <!-- <world-map></world-map> -->
-                <!-- </div> -->
-                <div class="col-md-12">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <tbody>
-                      <tr>
-                        <td>
-                          <!-- <div class="flag">
-                            <img src="static/img/flags/US.png">
-                          </div> -->
-                        </td>
-                        <td>Stipmunk68</td>
-                        <td class="text-right">
-                          <span class="green">+2.920</span>
-                        </td>
-                        <td class="text-right">
-                          <span class="red">-53.23%</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <!-- <div class="flag">
-                            <img src="static/img/flags/DE.png">
-                          </div> -->
-                        </td>
-                        <td>bot123-Hfscn7</td>
-                        <td class="text-right">
-                          <span class="green">+1.300</span>
-                        </td>
-                        <td class="text-right">
-                          <span class="green">20.43%</span>
-                        </td>
-                      </tr><tr>
-                        <td>
-                          <!-- <div class="flag">
-                            <img src="static/img/flags/DE.png">
-                          </div> -->
-                        </td>
-                        <td>Crupyds-Yqwn65</td>
-                        <td class="text-right">
-                          <span class="red">-0.9</span>
-                        </td>
-                        <td class="text-right">
-                          <span class="red">-22.98%</span>
-                        </td>
-                      </tr><tr>
-                        <td>
-                          <!-- <div class="flag">
-                            <img src="static/img/flags/DE.png">
-                          </div> -->
-                        </td>
-                        <td>RadioMonkey21</td>
-                        <td class="text-right">
-                          <span class="green">+1.300</span>
-                        </td>
-                        <td class="text-right">
-                          <span class="green">20.43%</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <!-- <div class="flag">
-                            <img src="static/img/flags/DE.png">
-                          </div> -->
-                        </td>
-                        <td>Uii2d20</td>
-                        <td class="text-right">
-                          <span class="green">+8.300</span>
-                        </td>
-                        <td class="text-right">
-                          <span class="green">+89.43%</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <!-- <div class="flag">
-                            <img src="static/img/flags/DE.png">
-                          </div> -->
-                        </td>
-                        <td>khBvWjaqcePiE6</td>
-                        <td class="text-right">
-                          <span class="green">+8.300</span>
-                        </td>
-                        <td class="text-right">
-                          <span class="green">+89.43%</span>
-                        </td>
-                      </tr>
-                      
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+              {{ item.statement }}
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <chart-card :chart-data="earningsChart.data" :chart-options="earningsChart.options">
-            <span slot="title">$34,657</span>
-            <span slot="title-label" class="label label-success">
-              +18%
-            </span>
-            <h6 slot="subtitle">
-              total earnings <span class="text-muted">in last</span> ten <span class="text-muted">quarters</span>
-            </h6>
-            <div slot="footer-title">
-              Financial Statistics
-            </div>
-            <button slot="footer-right" class="btn btn-info btn-fill btn-icon btn-sm">
-              <i class="ti-plus"></i>
-            </button>
-          </chart-card>
-        </div>
+      </div>
     </div>
+
+    <pre>
+      {{ payload }}
+    </pre>
+
+ 
 
 
   </div>
@@ -152,6 +93,7 @@
   import CircleChartCard from 'src/components/UIComponents/Cards/CircleChartCard.vue'
   import StatsCard from 'src/components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from 'src/components/UIComponents/Cards/ChartCard.vue'
+  import IntentService from 'src/services/IntentService.js'
   // import Loading from 'src/components/Dashboard/Layout/LoadingMainPanel.vue'
 
   /*
@@ -174,67 +116,81 @@
      */
     data () {
       return {
-        statsCards: [
-          {
-            type: 'warning',
-            icon: 'fa fa-btc',
-            title: 'Current Coins',
-            value: '105 BTC',
-            footerText: 'Updated now',
-            footerIcon: 'ti-reload'
-          },
-          {
-            type: 'success',
-            icon: 'ti-wallet',
-            title: 'Revenue',
-            value: '$1,345',
-            footerText: 'Last day',
-            footerIcon: 'ti-calendar'
-          },
-          {
-            type: 'danger',
-            icon: 'ti-pulse',
-            title: 'Errors',
-            value: '23',
-            footerText: 'In the last hour',
-            footerIcon: 'ti-timer'
-          },
-          {
-            type: 'info',
-            icon: '',
-            title: 'No. Of Bots',
-            value: '8',
-            footerText: 'Updated now',
-            footerIcon: 'ti-reload'
-          }
-        ],
-        earningsChart: {
-          data: {
-            labels: ['Jan', 'Feb', 'Mar', 'April', 'May', 'June'],
-            series: [
-              [230, 340, 400, 300, 570, 500, 800]
-            ]
-          },
-          options: {
-            showPoint: false,
-            lineSmooth: true,
-            height: '210px',
-            axisX: {
-              showGrid: false,
-              showLabel: true
+        switches: {
+         defaultOn: true,
+         plainOn: true,
+         withIconsOn: true,
+       },
+       intent_name: "",
+       question: "",
+       questions: [],
+       answer: "",
+       answers: [],
+       payload: {}
+      }
+    },
+    sockets:{
+      connect: function(){
+        console.log('socket connected')
+      },
+      customEmit: function(val){
+        console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
+      },
+      disconnect: function(){
+        console.log("Socket Disconnected")
+      }
+    },
+    methods: {
+      addQuestion: function(){
+        this.questions.push(this.question)
+        this.$socket.emit('event', {type: 'NER', payload: {statement: this.question}});
+        this.question = ""
+        this.payload =  {
+            name: this.intent_name,
+            questions: this.questions,
+            answers: this.answers,
+            action: {
+              name: "",
+              params: [
+              {isRequired: true, name: "", entity_name: "", value: ""}
+              ],
             },
-            axisY: {
-              offset: 40,
-              showGrid: false
-            },
-            low: 0,
-            high: 'auto',
-            classNames: {
-              line: 'ct-line ct-green'
-            }
+            entities: []
           }
-        }
 
+      },
+      addAnswer: function(){
+        this.answers.push({statement: this.answer, isEntityBased: true})
+        this.answer = ""
+      },
+      save: function(){
+        IntentService.saveIntents(this.payload)
+        this.$notify({
+          component: {
+            template: `<span>Intent has been saved successfully.</span>`
+          },
+          horizontalAlign: 'right', // right | center | left
+          verticalAlign: 'top', // top | bottom
+          type: 'success'  // info | success | warning | danger
+        })
+        this.payload = {}
+        this.answers = []
+        this.questions = []
+        this.intent_name = ""
+      },
+      onChange: function(){
+        this.payload =  {
+            name: this.intent_name,
+            questions: this.questions,
+            answers: this.answers,
+            action: {
+              name: "",
+              params: [
+              {isRequired: true, name: "", entity_name: "", value: ""}
+              ],
+            },
+            entities: []
+          }
       }
     }
   }

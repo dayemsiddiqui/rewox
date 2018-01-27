@@ -1,6 +1,7 @@
 import fgInput from './components/UIComponents/Inputs/formGroupInput.vue'
 import DropDown from './components/UIComponents/Dropdown.vue'
 import Checkbox from './components/UIComponents/Inputs/Checkbox.vue'
+import Switch from './components/UIComponents/Inputs/Switch.vue'
 import Radio from './components/UIComponents/Inputs/Radio.vue'
 
 // element-ui components
@@ -20,6 +21,7 @@ const GlobalComponents = {
     Vue.component(DropDown.name, DropDown)
     Vue.component(Checkbox.name, Checkbox)
     Vue.component(Radio.name, Radio)
+    Vue.component(Switch.name, Switch)
 
     // register element-ui components
     Vue.component(Tag.name, Tag)
