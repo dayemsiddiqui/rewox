@@ -7,6 +7,7 @@ import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt'
 import initializeDb from './db'
 import middleware from './middleware'
 import api from './api'
+import sockets from './sockets'
 import config from './config'
 import passport from 'passport'
 import User from './models/userModel'
@@ -16,15 +17,7 @@ let app = express()
 app.server = http.createServer(app)
 app.use('/', express.static(path.join(__dirname, '../../frontend/dist')))
 var io = require('socket.io')(app.server)
-io.on('connection', function(client){
-  console.log("Connected")
-  client.on('event', function(data){
-    console.log("Some event receieved", data)
-  });
-  client.on('disconnect', function(){
-    console.log("Disconnected")
-  });
-});
+
 
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'))
@@ -69,6 +62,8 @@ passport.use('jwt', new JwtStrategy(jwtOptions, (jwtPayload, done) => {
     else return done(null, false)
   })
 }))
+sockets({ io })
+app._io = io
 
 // connect to db
 initializeDb(db => {
@@ -76,8 +71,9 @@ initializeDb(db => {
   app.use(middleware({ config, db }))
 
   // api router
-  app.use('/api', api({ config, db}))
+  app.use('/api', api({ config, db, io}))
 
+  
   app.server.listen(process.env.PORT || config.port)
 
   console.log(`Started on port ${app.server.address().port}`)

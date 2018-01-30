@@ -20,9 +20,11 @@
     <div class="row">
       <br>
       <div class="col-sm-8">
-          <div class="card" v-for="item in questions">
+          <div class="card" v-for="item in views">
             <div class="card-content" >
+              <div class="entities" v-html="item">
               {{ item }}
+              </div>
             </div>
           </div>
       </div>
@@ -94,6 +96,7 @@
   import StatsCard from 'src/components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from 'src/components/UIComponents/Cards/ChartCard.vue'
   import IntentService from 'src/services/IntentService.js'
+  import EntityService from 'src/services/EntityService.js'
   // import Loading from 'src/components/Dashboard/Layout/LoadingMainPanel.vue'
 
   /*
@@ -124,17 +127,24 @@
        intent_name: "",
        question: "",
        questions: [],
+       views: [],
        answer: "",
        answers: [],
-       payload: {}
+       payload: {},
+       entities: [],
       }
     },
     sockets:{
       connect: function(){
         console.log('socket connected')
       },
-      customEmit: function(val){
-        console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
+      event: function(val){
+        console.log('New Data Received From Socket', val)
+        val = JSON.parse(val)
+        if(val.custom.task == 'NER' && val.custom.module == "intent_question"){
+          console.log("Rendering questions")
+          this.render(val)
+        }
       },
       disconnect: function(){
         console.log("Socket Disconnected")
@@ -143,7 +153,9 @@
     methods: {
       addQuestion: function(){
         this.questions.push(this.question)
-        this.$socket.emit('event', {type: 'NER', payload: {statement: this.question}});
+        // this.$socket.emit('event', {type: 'NER', payload: {statement: this.question}});
+        EntityService.identifyEntities({task: "NER", statement: this.question, custom: {task: 'NER', module:'intent_question',
+          index: this.questions.length - 1}})
         this.question = ""
         this.payload =  {
             name: this.intent_name,
@@ -155,7 +167,7 @@
               {isRequired: true, name: "", entity_name: "", value: ""}
               ],
             },
-            entities: []
+            entities: this.entities
           }
 
       },
@@ -191,6 +203,28 @@
             },
             entities: []
           }
+      },
+      render: function(response){
+        
+        var statement = this.questions[response.custom.index]
+        console.log("In Render", statement, this.questions)
+        var count = 0
+        for (var i = 0; i < response.result.length; i++) {
+          console.log("In Render Loop")
+          var start = response.result[i].start
+          var end = response.result[i].end
+          var label = response.result[i].label
+          this.entities.push(label.toLowerCase())
+          var tag = "<mark data-entity='" + label.toLowerCase() + "'>"
+          statement = [statement.slice(0, start + count), tag , statement.slice(start + count)].join('');
+          count = count + tag.length
+          statement = [statement.slice(0, end + count), "</mark>", statement.slice(end + count)].join('');
+          count = count + "</mark>".length
+        }
+        this.entities =  [...new Set(this.entities)] 
+        this.payload.entities = this.entities
+        this.views.push(statement)
+        console.log("Render complete", statement, this.questions)
       }
     }
   }

@@ -14,7 +14,7 @@ export default  {
     })
   },
   identifyEntities (payload) {
-    return api().post('entities/identity', payload).then((res, err) => {
+    return api().post('nlp/ner', payload).then((res, err) => {
       console.log("Error in save intent:", err)
       console.log("Response in save intent:", res.data)
     })

@@ -8,6 +8,7 @@ import entities from './entities'
 import auth from './auth'
 import dba from './db'
 import twitter from './twitter'
+import nlp from './nlp'
 
 export default ({ config, db, io}) => {
   let api = Router()
@@ -21,6 +22,7 @@ export default ({ config, db, io}) => {
   api.use('/trainings', trainings)
   api.use('/bots', bots)
   api.use('/twitter', twitter)
+  api.use('/nlp', nlp)
       // perhaps expose some API metadata at the root
   api.get('/', (req, res) => {
     res.json({ version })

@@ -65,3 +65,42 @@ Key Advantages:
    statement: "",
    entities: [],
  } 
+
+ API Reference Guide:
+ ====================
+
+ - NLP:
+ 	- Named Entity Recognition:
+ 		url: /api/nlp/ner
+ 		method: post
+ 		body: {
+ 		task: 'NER',
+ 		statement: '', //String,
+ 		custom: {}, //Any object or string
+ 		}
+ 		
+ - Intent:
+ 	- Create Intent:
+ 		url: /api/intents/save
+ 		method: post
+ 		body: {
+		 	name: ""
+		 	questions: [],
+		 	answers: [
+		 	{statement: "", isEntityBased: true},
+		 	],
+		 	action: {
+		 		name: "",
+		 		params: [
+		 		{isRequired: true, name: "", entity_name: "", value: ""}
+		 		],
+		 	}
+		 	entities: []
+		 }
+
+  	- Fetch Intents:
+  		url: /api/intents/
+  		method: get
+	  		
+
+	

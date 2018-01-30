@@ -3,7 +3,7 @@ import json
 print "Service Manager Started"
 
 rq = 'service_manager'
-queues = {'backend': 'backend', 'data_collector': 'data_collector'}
+queues = {'backend': 'backend', 'data_collector': 'data_collector', 'nlu': 'nlu'}
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
