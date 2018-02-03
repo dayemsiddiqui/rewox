@@ -43,8 +43,9 @@ let woxcut = {
     },
     {
       path: 'intents',
-      name: 'Intents',
-      component: Overview
+      name: 'intents',
+      props: true,
+      component: Overview,
     },
     {
       path: 'chatbot',

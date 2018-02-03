@@ -3,8 +3,9 @@
     <!--Stats cards-->
     <div class="row">
     <div class="col-sm-8">
-        <input type="text" placeholder="Ask a question" style="width: 100%;">
+        <input type="text" placeholder="Ask a question" v-model="question" style="width: 100%;">
     </div>
+    <button class="btn btn-primary btn-sm" v-on:click="send">Send</button>
     </div>
     <br> 
 
@@ -13,7 +14,7 @@
         <label>Bot's Response</label>
          <div class="card">
             <div class="card-content">
-              I want to listen songs by Atif Aslam
+              {{ answer }}
             </div>
           </div>
     </div>
@@ -59,6 +60,7 @@
          
          </code>
       </div>
+
     </div>
 
 <!--     <div class="row">
@@ -89,6 +91,7 @@
   import CircleChartCard from 'src/components/UIComponents/Cards/CircleChartCard.vue'
   import StatsCard from 'src/components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from 'src/components/UIComponents/Cards/ChartCard.vue'
+  import BotService from 'src/services/BotsService.js'
   // import Loading from 'src/components/Dashboard/Layout/LoadingMainPanel.vue'
 
   /*
@@ -115,9 +118,42 @@
          defaultOn: true,
          plainOn: true,
          withIconsOn: true,
-       }
-
+       },
+       payload: {},
+       question: "New Call",
+       answer: "Hii!!!",
       }
+    },
+    sockets:{
+      connect: function(){
+        console.log('socket connected')
+      },
+      event: function(val){
+        console.log('New Data Received From Socket', val)
+        val = JSON.parse(val)
+        if(val.custom.task == 'BOT_RESPOND' && val.custom.module == "bot_question"){
+          console.log("Rendering answer", val.result.response, val.result.response.statement)
+          this.answer = val.result.response
+        }
+      },
+      disconnect: function(){
+        console.log("Socket Disconnected")
+      }
+    },
+    methods: {
+      send(){
+        this.payload = {
+          statement: this.question,
+          task: 'BOT_RESPOND',
+          custom: {
+            task: 'BOT_RESPOND',
+            module: 'bot_question',
+          },
+        }
+        console.log("Payload", JSON.stringify(this.payload, null, 2))
+        BotService.askBot(this.payload)
+      }
+
     }
   }
 

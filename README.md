@@ -66,6 +66,27 @@ Key Advantages:
    entities: [],
  } 
 
+ SOCKET PAYLOAD
+ ==============
+
+ From server/ API endpoints to client:
+  - In String
+  - {custom: {task: "", module: ""}, payload: "", status: ""}
+
+
+ NLU Service Protocol:
+ ====================
+ - Bot Response:
+ 	method: microservice
+ 	body: {
+ 	task: 'BOT_RESPOND',
+ 	statement: '', //String,
+ 	custom: {}, //Any object,
+ 	intents: [], // Array of intent objects 
+ 	}
+ 	Response:
+ 	{custom: {} //Whatever Object you posted, result: { response: "" //String, action: {} //Action Object}}
+
  API Reference Guide:
  ====================
 
@@ -78,6 +99,19 @@ Key Advantages:
  		statement: '', //String,
  		custom: {}, //Any object or string
  		}
+ 		Response:
+ 		{custom: {} //Whatever Object or string you posted, result: [{start: "", end: "", label: ""}]}
+
+ 	- Bot Response:
+ 		url: /api/bot/respond
+ 		method: post
+ 		body: {
+ 		task: 'BOT_RESPOND',
+ 		statement: '', //String,
+ 		custom: {}, //Any object
+ 		}
+ 		Response:
+ 		{custom: {} //Whatever Object you posted, result: { response: "" //String, action: {} //Action Object}}
  		
  - Intent:
  	- Create Intent:

@@ -7,8 +7,9 @@ import spacy
 import tweepy
 import pika
 import json
+import similarity
 
-nlp = spacy.load('en')
+nlp = spacy.load('en_core_web_lg')
 
 print "NLU Service Started"
 
@@ -22,6 +23,10 @@ def ner(sentence):
 		entities.append({"word": ent.text, "start": ent.start_char, "end": ent.end_char, "label": ent.label_})
 		print(ent.text, ent.start_char, ent.end_char, ent.label_)
 	return entities
+
+def bot_reply(sentence, intents):
+	answer = similarity.getAnswer(nlp, sentence, intents)
+	return answer
 
 
 def respond(message):
@@ -39,6 +44,10 @@ def callback(ch, method, properties, body):
 	custom =  payload['custom']
 	if payload['task'] == 'NER':
 		result = ner(payload['statement'])
+		message = {"payload": {"result": result, "custom": custom}}
+		respond(message)
+	if payload['task'] == 'BOT_RESPOND':
+		result = {"response": bot_reply(payload['statement'], payload['intents']), "action": {}}
 		message = {"payload": {"result": result, "custom": custom}}
 		respond(message)
 		

@@ -2,10 +2,7 @@ import api from './api'
 
 export default  {
   fetchIntents () {
-    return api().get('intents').then((res, err) => {
-    	console.log("Response", res.data)
-    	console.log("Error", err)
-    })
+    return api().get('intents')
   },
   saveIntents (payload) {
     return api().post('intents/save', payload).then((res, err) => {

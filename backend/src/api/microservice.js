@@ -4,7 +4,7 @@ var rq = 'backend'
 var sq = 'service_manager'
 var open = require('amqplib').connect('amqp://localhost');
 
-console.log("RabbitMQ data collection service initiated")
+console.log("RabbitMQ data collection service initiated.")
 
 open.then(function(conn) {
   return conn.createChannel();

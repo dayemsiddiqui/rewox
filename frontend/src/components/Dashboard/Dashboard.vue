@@ -3,17 +3,12 @@
   <div class="row">
   <div class="col-sm-8">
       <label>Intents</label>
-      <div class="card">
+      <div class="card" v-for="intent in intents">
         <div class="card-content">
-          I want to listen songs by Atif Aslam
+          <router-link :to="{ path: 'intents' }">{{ intent.name }}</router-link>
         </div>
       </div>
-      <div class="card">
-        <div class="card-content">
-          I want to listen songs by Atif Aslam
-        </div>
-      </div>
-      <button class="btn btn-primary" style="width: 100%;"> New Intent</button>
+      <router-link :to="{ name: 'intents', params: { readOnly: true } }"><button class="btn btn-primary" style="width: 100%;"> New Intent</button></router-link>
   </div>
   </div>
   <br>
@@ -72,14 +67,19 @@
          defaultOn: true,
          plainOn: true,
          withIconsOn: true,
-       }
-
+       },
+       intents: [],
       }
     },
 
     mounted: function(){
       console.log("Dashboard Just Mounted")
-      IntentService.fetchIntents()
+      IntentService.fetchIntents().then((res, err) => {
+           console.log("Response", res.data)
+           console.log("Error", err)
+           this.intents = res.data.payload
+         })
+      
     }
   }
 

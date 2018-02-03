@@ -25,6 +25,8 @@ import 'es6-promise/auto'
 
 // import sidebarLinks from './sidebarLinks' // use this to restore original routes
 import sidebarLinks from './sidebarLinksWoxcut'
+Vue.config.devtools = true
+
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(GlobalDirectives)

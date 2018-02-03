@@ -108,6 +108,9 @@
   */
   
   export default {
+
+    props: ['readOnly'],
+
     components: {
       StatsCard,
       ChartCard,
@@ -132,7 +135,12 @@
        answers: [],
        payload: {},
        entities: [],
+
       }
+    },
+    mounted: function(){
+      console.log("Dashboard Just Mounted", this.$route.params)
+      console.log("ReadOnly", this.readOnly)
     },
     sockets:{
       connect: function(){
@@ -189,6 +197,7 @@
         this.answers = []
         this.questions = []
         this.intent_name = ""
+        this.views = []
       },
       onChange: function(){
         this.payload =  {

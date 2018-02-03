@@ -8,7 +8,9 @@ export default ({ io }) => {
 const intents = Router()
 
 intents.get('/', (req, res) => {
-  	res.json({status: 'success', payload:[{intent_name: 'Dummy Intent'}]})
+	r.table('intents').run().then((result) => {
+		res.json({status: 'success', payload: result})
+  	})
 })
 
 intents.post('/save', (req, res) => {
