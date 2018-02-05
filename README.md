@@ -1,4 +1,4 @@
-# Rewox
+# WoxCut
 Analyse, Respond and Automate your business social profiles.
 
 Services we need to run:
