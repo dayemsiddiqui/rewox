@@ -2,10 +2,11 @@
   <div>
     <!--Stats cards-->
     <div class="row">
+    <ChatBox />
     <div class="col-sm-8">
         <input type="text" placeholder="Ask a question" v-model="question" style="width: 100%;">
     </div>
-    <button class="btn btn-primary btn-sm" v-on:click="send">Send</button>
+    <button class="btn btn-primary btn-sm" v-on:click="send" v-on:keyup.enter.native="send">Send</button>
     </div>
     <br> 
 
@@ -20,7 +21,7 @@
     </div>
     </div>
 
-    <div class="row">
+<!--     <div class="row">
       <br>
       <div class="col-sm-8">
          <label>Actions</label>
@@ -30,7 +31,7 @@
             </div>
           </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="row">
       <br>
@@ -39,23 +40,7 @@
          <br>
          <code>
          <pre>
-           {
-            question: 'I want to listen to songs of Atif Aslam',
-            response: 'Ok playing Atif Aslam songs',
-            entities: [
-            {
-            name: artist,
-            value: 'Atif Aslam'
-            }
-            ],
-            actions: [
-            {name: 'play_song', 
-            params: [name: 'artist_name', value: 'Atif Aslam',
-                     entity_name: 'artist'],
-            isRequired: true,
-            },
-            ],
-           }
+           {{ payload }}
          </pre>
          
          </code>
@@ -88,9 +73,8 @@
   </div>
 </template>
 <script>
-  import CircleChartCard from 'src/components/UIComponents/Cards/CircleChartCard.vue'
-  import StatsCard from 'src/components/UIComponents/Cards/StatsCard.vue'
-  import ChartCard from 'src/components/UIComponents/Cards/ChartCard.vue'
+  import ChatBox from 'src/components/Dashboard/ChatBox.vue'
+
   import BotService from 'src/services/BotsService.js'
   // import Loading from 'src/components/Dashboard/Layout/LoadingMainPanel.vue'
 
@@ -104,24 +88,16 @@
   
   export default {
     components: {
-      StatsCard,
-      ChartCard,
-      CircleChartCard
-      // WorldMap
+      ChatBox,
     },
     /**
      * Chart data used to render stats, charts. Should be replaced with server data
      */
     data () {
       return {
-        switches: {
-         defaultOn: true,
-         plainOn: true,
-         withIconsOn: true,
-       },
        payload: {},
-       question: "New Call",
-       answer: "Hii!!!",
+       question: "",
+       answer: "",
       }
     },
     sockets:{
@@ -134,6 +110,7 @@
         if(val.custom.task == 'BOT_RESPOND' && val.custom.module == "bot_question"){
           console.log("Rendering answer", val.result.response, val.result.response.statement)
           this.answer = val.result.response
+          this.payload =  val.result
         }
       },
       disconnect: function(){

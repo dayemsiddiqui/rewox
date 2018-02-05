@@ -15,9 +15,19 @@ intents.get('/', (req, res) => {
 
 intents.post('/save', (req, res) => {
 	console.log("Request Payload", req.body)
-	r.table('intents').insert(req.body).run().then((result) => {
-		res.json({status: 'success', payload: result})
-  	})
+	r.table('intents').filter({name: req.body.name}).run().then((result) => {
+		if(result.length <= 0){
+			r.table('intents').insert(req.body).run().then((result) => {
+				res.json({status: 'success', payload: result, msg: "New intent added successfully"})
+		  	})
+		}
+		else{
+			r.table('intents').filter({name: req.body.name}).update(req.body).run().then((result) => {
+				res.json({status: 'success', payload: result, msg: "Intent updated successfully"})
+		  	})
+		}
+	})
+
 })
  return intents
 }

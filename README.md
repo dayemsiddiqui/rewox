@@ -85,7 +85,7 @@ Key Advantages:
  	intents: [], // Array of intent objects 
  	}
  	Response:
- 	{custom: {} //Whatever Object you posted, result: { response: "" //String, action: {} //Action Object}}
+ 	{custom: {} //Whatever Object you posted, server: {task: 'BOT_RESPOND', success: 'false' , statement: ''} //Any Object, result: { response: "" //String, action: {} //Action Object}}
 
  API Reference Guide:
  ====================

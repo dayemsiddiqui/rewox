@@ -4,7 +4,7 @@
     <!--Stats cards-->
     <div class="row">
     <div class="col-sm-8">
-        <input type="text" placeholder="Intent Name" v-model="intent_name" v-on:change="onChange" style="width: 100%;">
+        <input type="text" placeholder="Intent Name" v-model="payload.name" v-on:change="onChange" style="width: 100%;">
     </div>
         <button class="btn btn-primary btn-sm" v-on:click="save"> Save </button>
     </div>
@@ -74,7 +74,7 @@
     <div class="row">
       <br>
       <div class="col-sm-8">
-          <div class="card" v-for="item in answers">
+          <div class="card" v-for="item in payload.answers">
             <div class="card-content">
               {{ item.statement }}
             </div>
@@ -109,8 +109,12 @@
   
   export default {
 
-    props: ['readOnly'],
+    
+    // computed: {
+    //   storedIntent(){
 
+    //   }
+    // },
     components: {
       StatsCard,
       ChartCard,
@@ -129,18 +133,30 @@
        },
        intent_name: "",
        question: "",
-       questions: [],
+       // questions: [],
        views: [],
        answer: "",
-       answers: [],
-       payload: {},
-       entities: [],
+       // answers: [],
+       payload: {
+        name: "",
+        questions: [],
+        answers: [],
+        entities: [],
+       },
+       // entities: [],
 
       }
     },
     mounted: function(){
-      console.log("Dashboard Just Mounted", this.$route.params)
-      console.log("ReadOnly", this.readOnly)
+      console.log("Dashboard Just Mounted", this.$store.state.isIntentUpdate)
+      if (this.$store.state.isIntentUpdate == true){
+        this.payload = this.$store.state.intent
+        this.views = this.payload.questions 
+      }
+    },
+
+    destroyed: function(){
+      this.$store.commit('removeIntent')
     },
     sockets:{
       connect: function(){
@@ -160,80 +176,70 @@
     },
     methods: {
       addQuestion: function(){
-        this.questions.push(this.question)
+        this.payload.questions.push(this.question)
         // this.$socket.emit('event', {type: 'NER', payload: {statement: this.question}});
         EntityService.identifyEntities({task: "NER", statement: this.question, custom: {task: 'NER', module:'intent_question',
-          index: this.questions.length - 1}})
+          index: this.payload.questions.length - 1}})
         this.question = ""
-        this.payload =  {
-            name: this.intent_name,
-            questions: this.questions,
-            answers: this.answers,
-            action: {
-              name: "",
-              params: [
-              {isRequired: true, name: "", entity_name: "", value: ""}
-              ],
-            },
-            entities: this.entities
-          }
+        // this.payload =  {
+        //     name: this.intent_name,
+        //     questions: this.questions,
+        //     answers: this.answers,
+        //     action: {
+        //       name: "",
+        //       params: [
+        //       {isRequired: true, name: "", entity_name: "", value: ""}
+        //       ],
+        //     },
+        //     entities: this.entities
+        //   }
 
       },
       addAnswer: function(){
-        this.answers.push({statement: this.answer, isEntityBased: true})
+        this.payload.answers.push({statement: this.answer, isEntityBased: true})
         this.answer = ""
       },
-      save: function(){
-        IntentService.saveIntents(this.payload)
-        this.$notify({
-          component: {
-            template: `<span>Intent has been saved successfully.</span>`
-          },
-          horizontalAlign: 'right', // right | center | left
-          verticalAlign: 'top', // top | bottom
-          type: 'success'  // info | success | warning | danger
-        })
-        this.payload = {}
-        this.answers = []
-        this.questions = []
-        this.intent_name = ""
+      save(){
+        IntentService.saveIntents(this.payload, this.$notify)
+        
+        // this.payload = {}
         this.views = []
       },
       onChange: function(){
-        this.payload =  {
-            name: this.intent_name,
-            questions: this.questions,
-            answers: this.answers,
-            action: {
-              name: "",
-              params: [
-              {isRequired: true, name: "", entity_name: "", value: ""}
-              ],
-            },
-            entities: []
-          }
+        // this.payload =  {
+        //     name: this.intent_name,
+        //     questions: this.questions,
+        //     answers: this.answers,
+        //     action: {
+        //       name: "",
+        //       params: [
+        //       {isRequired: true, name: "", entity_name: "", value: ""}
+        //       ],
+        //     },
+        //     entities: []
+        //   }
       },
       render: function(response){
         
-        var statement = this.questions[response.custom.index]
-        console.log("In Render", statement, this.questions)
+        var statement = this.payload.questions[response.custom.index]
+        console.log("In Render", statement, this.payload.questions)
         var count = 0
         for (var i = 0; i < response.result.length; i++) {
           console.log("In Render Loop")
           var start = response.result[i].start
           var end = response.result[i].end
           var label = response.result[i].label
-          this.entities.push(label.toLowerCase())
+          this.payload.entities.push(label.toLowerCase())
           var tag = "<mark data-entity='" + label.toLowerCase() + "'>"
           statement = [statement.slice(0, start + count), tag , statement.slice(start + count)].join('');
           count = count + tag.length
           statement = [statement.slice(0, end + count), "</mark>", statement.slice(end + count)].join('');
           count = count + "</mark>".length
         }
-        this.entities =  [...new Set(this.entities)] 
-        this.payload.entities = this.entities
+        this.payload.entities =  [...new Set(this.payload.entities)] 
+        // this.payload.entities = this.entities
         this.views.push(statement)
-        console.log("Render complete", statement, this.questions)
+        console.log("Render complete", statement, this.payload.questions)
       }
     }
   }

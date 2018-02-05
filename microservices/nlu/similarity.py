@@ -35,9 +35,9 @@ def getAnswer(nlp, statement, intents):
 
 	if target_intent != False:
 		answer = target_intent["answers"][randint(0, len(target_intent["answers"]) - 1)]
-		return answer["statement"]
+		return (answer["statement"], True)
 	else:
-		return "Sorry, I cant understand your question, I am still learning"
+		return ("Sorry, I cant understand your question, I am still learning", False)
 	
 
 

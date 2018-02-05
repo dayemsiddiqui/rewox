@@ -5,7 +5,7 @@
       <label>Intents</label>
       <div class="card" v-for="intent in intents">
         <div class="card-content">
-          <router-link :to="{ path: 'intents' }">{{ intent.name }}</router-link>
+          <router-link :to="{ path: 'intents' }" v-on:click.native="storeIntent(intent)">{{ intent.name }}</router-link>
         </div>
       </div>
       <router-link :to="{ name: 'intents', params: { readOnly: true } }"><button class="btn btn-primary" style="width: 100%;"> New Intent</button></router-link>
@@ -80,7 +80,14 @@
            this.intents = res.data.payload
          })
       
+    },
+
+    methods: {
+      storeIntent(intent){
+        this.$store.commit('storeIntent', intent)
+      }
     }
+
   }
 
 </script>

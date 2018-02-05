@@ -9,7 +9,7 @@ import pika
 import json
 import similarity
 
-nlp = spacy.load('en_core_web_lg')
+nlp = spacy.load('en')
 
 print "NLU Service Started"
 
@@ -25,8 +25,11 @@ def ner(sentence):
 	return entities
 
 def bot_reply(sentence, intents):
-	answer = similarity.getAnswer(nlp, sentence, intents)
-	return answer
+	answer, success = similarity.getAnswer(nlp, sentence, intents)
+	if success is False:
+		return answer, {"task": 'BOT_RESPOND', "success": 'false' , "statement": sentence}
+	else:
+		return answer, {}
 
 
 def respond(message):
@@ -47,8 +50,9 @@ def callback(ch, method, properties, body):
 		message = {"payload": {"result": result, "custom": custom}}
 		respond(message)
 	if payload['task'] == 'BOT_RESPOND':
-		result = {"response": bot_reply(payload['statement'], payload['intents']), "action": {}}
-		message = {"payload": {"result": result, "custom": custom}}
+		response, server = bot_reply(payload['statement'], payload['intents'])
+		result = {"response": response, "action": {}}
+		message = {"payload": {"result": result, "custom": custom, "server": server}}
 		respond(message)
 		
 	## Do some work here

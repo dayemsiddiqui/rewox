@@ -1978,3 +1978,1343 @@ self._poller.poll()
 All client connections closed.
 Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
 Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, this is a test","custom":{"task":"NER","module":"intent_question","index":0}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, this is a test", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, this is a test", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Sending message to service manager: {"payload": {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"The deadline for project is tomorrow 11 am in the morning","custom":{"task":"NER","module":"intent_question","index":1}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "The deadline for project is tomorrow 11 am in the morning", "custom": {"index": 1, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "The deadline for project is tomorrow 11 am in the morning", "custom": {"index": 1, "task": "NER", "module": "intent_question"}}
+(u'tomorrow 11', 28, 39, u'DATE')
+(u'the morning', 46, 57, u'TIME')
+Sending message to service manager: {"payload": {"result": [{"start": 28, "end": 39, "word": "tomorrow 11", "label": "DATE"}, {"start": 46, "end": 57, "word": "the morning", "label": "TIME"}], "custom": {"index": 1, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 28, "end": 39, "word": "tomorrow 11", "label": "DATE"}, {"start": 46, "end": 57, "word": "the morning", "label": "TIME"}], "custom": {"index": 1, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 28, "end": 39, "word": "tomorrow 11", "label": "DATE"}, {"start": 46, "end": 57, "word": "the morning", "label": "TIME"}], "custom": {"index": 1, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"The deadline for project is tomorrow 11am in the morning","custom":{"task":"NER","module":"intent_question","index":2}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "The deadline for project is tomorrow 11am in the morning", "custom": {"index": 2, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "The deadline for project is tomorrow 11am in the morning", "custom": {"index": 2, "task": "NER", "module": "intent_question"}}
+(u'tomorrow 11', 28, 39, u'DATE')
+(u'the morning', 45, 56, u'TIME')
+Sending message to service manager: {"payload": {"result": [{"start": 28, "end": 39, "word": "tomorrow 11", "label": "DATE"}, {"start": 45, "end": 56, "word": "the morning", "label": "TIME"}], "custom": {"index": 2, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 28, "end": 39, "word": "tomorrow 11", "label": "DATE"}, {"start": 45, "end": 56, "word": "the morning", "label": "TIME"}], "custom": {"index": 2, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 28, "end": 39, "word": "tomorrow 11", "label": "DATE"}, {"start": 45, "end": 56, "word": "the morning", "label": "TIME"}], "custom": {"index": 2, "task": "NER", "module": "intent_question"}}
+error: Failed to parse one or more lines from the log file, the contents of the `logs` system table will be incomplete. The following parse error occurred: cannot parse log message (1) while parsing ""
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 70, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Server got SIGINT from pid 0, uid 0; shutting down...
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+        self.connection.process_data_events(time_limit=None)
+self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+        self._flush_output(common_terminator)
+self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+        self._impl.ioloop.poll()
+self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+        self._poller.poll()
+self._poller.poll()
+
+
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 70, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Server got SIGINT from pid 0, uid 0; shutting down...
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+        self.connection.process_data_events(time_limit=None)
+self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+        self._flush_output(common_terminator)
+self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+        self._impl.ioloop.poll()
+self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+Shutting down client connections...
+        self._poller.poll()
+self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+        events = self._poll.poll(self._get_next_deadline())
+events = self._poll.poll(self._get_next_deadline())
+KeyboardInterruptKeyboardInterrupt
+
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Server got SIGINT from pid 0, uid 0; shutting down...
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 70, in <module>
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+        channel.start_consuming()channel.start_consuming()
+
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+        self.connection.process_data_events(time_limit=None)
+self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+        self._flush_output(common_terminator)
+self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+        self._impl.ioloop.poll()
+self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+        self._poller.poll()
+self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+        events = self._poll.poll(self._get_next_deadline())
+events = self._poll.poll(self._get_next_deadline())
+KeyboardInterruptKeyboardInterrupt
+
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+warn: Cache size does not leave much memory for server and query overhead (available memory: 1052 MB).
+warn: Cache size is very low and may impact performance.
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+  File "microservices/nlu/nlu.py", line 70, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Server got SIGINT from pid 0, uid 0; shutting down...
+        self.connection.process_data_events(time_limit=None)
+self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+        self._flush_output(common_terminator)
+self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+        self._poller.poll()
+self._poller.poll()
+
+
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 70, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Server got SIGINT from pid 0, uid 0; shutting down...
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+Shutting down client connections...
+        events = self._poll.poll(self._get_next_deadline())
+events = self._poll.poll(self._get_next_deadline())
+KeyboardInterruptKeyboardInterrupt
+
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Server got SIGINT from pid 0, uid 0; shutting down...
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 70, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Shutting down client connections...
+        self.connection.process_data_events(time_limit=None)
+self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+        self._poller.poll()
+self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+        events = self._poll.poll(self._get_next_deadline())
+events = self._poll.poll(self._get_next_deadline())
+KeyboardInterruptKeyboardInterrupt
+
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting at 3pm on 25th of Feburary at Grand Street Lenexa cafe ","custom":{"task":"NER","module":"intent_question","index":0}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25th of Feburary at Grand Street Lenexa cafe ", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25th of Feburary at Grand Street Lenexa cafe ", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+(u'3pm on 25th of', 29, 43, u'TIME')
+(u'Grand Street Lenexa', 56, 75, u'FAC')
+Sending message to service manager: {"payload": {"result": [{"start": 29, "end": 43, "word": "3pm on 25th of", "label": "TIME"}, {"start": 56, "end": 75, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 29, "end": 43, "word": "3pm on 25th of", "label": "TIME"}, {"start": 56, "end": 75, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 29, "end": 43, "word": "3pm on 25th of", "label": "TIME"}, {"start": 56, "end": 75, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting at 3pm on 25th Feburary at Grand Street Lenexa cafe ","custom":{"task":"NER","module":"intent_question","index":1}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25th Feburary at Grand Street Lenexa cafe ", "custom": {"index": 1, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25th Feburary at Grand Street Lenexa cafe ", "custom": {"index": 1, "task": "NER", "module": "intent_question"}}
+(u'3pm', 29, 32, u'TIME')
+(u'25th Feburary', 36, 49, u'FAC')
+(u'Grand Street Lenexa', 53, 72, u'FAC')
+Sending message to service manager: {"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 49, "word": "25th Feburary", "label": "FAC"}, {"start": 53, "end": 72, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 1, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 49, "word": "25th Feburary", "label": "FAC"}, {"start": 53, "end": 72, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 1, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 49, "word": "25th Feburary", "label": "FAC"}, {"start": 53, "end": 72, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 1, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting at 3pm on 25th of Feburary at Starbucks","custom":{"task":"NER","module":"intent_question","index":2}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25th of Feburary at Starbucks", "custom": {"index": 2, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25th of Feburary at Starbucks", "custom": {"index": 2, "task": "NER", "module": "intent_question"}}
+(u'3pm on 25th of Feburary', 29, 52, u'TIME')
+Sending message to service manager: {"payload": {"result": [{"start": 29, "end": 52, "word": "3pm on 25th of Feburary", "label": "TIME"}], "custom": {"index": 2, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 29, "end": 52, "word": "3pm on 25th of Feburary", "label": "TIME"}], "custom": {"index": 2, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 29, "end": 52, "word": "3pm on 25th of Feburary", "label": "TIME"}], "custom": {"index": 2, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting at 3pm on 25 Feburary at Grand Street Lenexa cafe ","custom":{"task":"NER","module":"intent_question","index":3}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25 Feburary at Grand Street Lenexa cafe ", "custom": {"index": 3, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25 Feburary at Grand Street Lenexa cafe ", "custom": {"index": 3, "task": "NER", "module": "intent_question"}}
+(u'3pm', 29, 32, u'TIME')
+(u'25', 36, 38, u'CARDINAL')
+(u'Grand Street Lenexa', 51, 70, u'FAC')
+Sending message to service manager: {"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 51, "end": 70, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 3, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 51, "end": 70, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 3, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 51, "end": 70, "word": "Grand Street Lenexa", "label": "FAC"}], "custom": {"index": 3, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting at 3pm on 25 Feburary at McDonalds","custom":{"task":"NER","module":"intent_question","index":4}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25 Feburary at McDonalds", "custom": {"index": 4, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25 Feburary at McDonalds", "custom": {"index": 4, "task": "NER", "module": "intent_question"}}
+(u'3pm', 29, 32, u'TIME')
+(u'25', 36, 38, u'CARDINAL')
+(u'McDonalds', 51, 60, u'ORG')
+Sending message to service manager: {"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 51, "end": 60, "word": "McDonalds", "label": "ORG"}], "custom": {"index": 4, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 51, "end": 60, "word": "McDonalds", "label": "ORG"}], "custom": {"index": 4, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 51, "end": 60, "word": "McDonalds", "label": "ORG"}], "custom": {"index": 4, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting at 3pm on Feburary 25 at McDonalds","custom":{"task":"NER","module":"intent_question","index":5}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on Feburary 25 at McDonalds", "custom": {"index": 5, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on Feburary 25 at McDonalds", "custom": {"index": 5, "task": "NER", "module": "intent_question"}}
+(u'3pm', 29, 32, u'TIME')
+(u'Feburary 25', 36, 47, u'FAC')
+(u'McDonalds', 51, 60, u'FAC')
+Sending message to service manager: {"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 47, "word": "Feburary 25", "label": "FAC"}, {"start": 51, "end": 60, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 5, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 47, "word": "Feburary 25", "label": "FAC"}, {"start": 51, "end": 60, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 5, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 47, "word": "Feburary 25", "label": "FAC"}, {"start": 51, "end": 60, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 5, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting tomorrow at 3pm at McDonalds","custom":{"task":"NER","module":"intent_question","index":6}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting tomorrow at 3pm at McDonalds", "custom": {"index": 6, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting tomorrow at 3pm at McDonalds", "custom": {"index": 6, "task": "NER", "module": "intent_question"}}
+(u'tomorrow', 26, 34, u'DATE')
+(u'3pm', 38, 41, u'TIME')
+(u'McDonalds', 45, 54, u'FAC')
+Sending message to service manager: {"payload": {"result": [{"start": 26, "end": 34, "word": "tomorrow", "label": "DATE"}, {"start": 38, "end": 41, "word": "3pm", "label": "TIME"}, {"start": 45, "end": 54, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 6, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 26, "end": 34, "word": "tomorrow", "label": "DATE"}, {"start": 38, "end": 41, "word": "3pm", "label": "TIME"}, {"start": 45, "end": 54, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 6, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 26, "end": 34, "word": "tomorrow", "label": "DATE"}, {"start": 38, "end": 41, "word": "3pm", "label": "TIME"}, {"start": 45, "end": 54, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 6, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting at 3pm on 25 Feburary near McDonalds","custom":{"task":"NER","module":"intent_question","index":7}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25 Feburary near McDonalds", "custom": {"index": 7, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting at 3pm on 25 Feburary near McDonalds", "custom": {"index": 7, "task": "NER", "module": "intent_question"}}
+(u'3pm', 29, 32, u'TIME')
+(u'25', 36, 38, u'CARDINAL')
+(u'McDonalds', 53, 62, u'ORG')
+Sending message to service manager: {"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 53, "end": 62, "word": "McDonalds", "label": "ORG"}], "custom": {"index": 7, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 53, "end": 62, "word": "McDonalds", "label": "ORG"}], "custom": {"index": 7, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 29, "end": 32, "word": "3pm", "label": "TIME"}, {"start": 36, "end": 38, "word": "25", "label": "CARDINAL"}, {"start": 53, "end": 62, "word": "McDonalds", "label": "ORG"}], "custom": {"index": 7, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, can we have a meeting tomorrow at 3pm near McDonalds","custom":{"task":"NER","module":"intent_question","index":8}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, can we have a meeting tomorrow at 3pm near McDonalds", "custom": {"index": 8, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, can we have a meeting tomorrow at 3pm near McDonalds", "custom": {"index": 8, "task": "NER", "module": "intent_question"}}
+(u'tomorrow', 26, 34, u'DATE')
+(u'3pm', 38, 41, u'TIME')
+(u'McDonalds', 47, 56, u'FAC')
+Sending message to service manager: {"payload": {"result": [{"start": 26, "end": 34, "word": "tomorrow", "label": "DATE"}, {"start": 38, "end": 41, "word": "3pm", "label": "TIME"}, {"start": 47, "end": 56, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 8, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 26, "end": 34, "word": "tomorrow", "label": "DATE"}, {"start": 38, "end": 41, "word": "3pm", "label": "TIME"}, {"start": 47, "end": 56, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 8, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 26, "end": 34, "word": "tomorrow", "label": "DATE"}, {"start": 38, "end": 41, "word": "3pm", "label": "TIME"}, {"start": 47, "end": 56, "word": "McDonalds", "label": "FAC"}], "custom": {"index": 8, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Lets meet tomorrow at McDonalds at 3pm","custom":{"task":"NER","module":"intent_question","index":9}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Lets meet tomorrow at McDonalds at 3pm", "custom": {"index": 9, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Lets meet tomorrow at McDonalds at 3pm", "custom": {"index": 9, "task": "NER", "module": "intent_question"}}
+(u'tomorrow', 10, 18, u'DATE')
+(u'McDonalds', 22, 31, u'ORG')
+(u'3pm', 35, 38, u'TIME')
+Sending message to service manager: {"payload": {"result": [{"start": 10, "end": 18, "word": "tomorrow", "label": "DATE"}, {"start": 22, "end": 31, "word": "McDonalds", "label": "ORG"}, {"start": 35, "end": 38, "word": "3pm", "label": "TIME"}], "custom": {"index": 9, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 10, "end": 18, "word": "tomorrow", "label": "DATE"}, {"start": 22, "end": 31, "word": "McDonalds", "label": "ORG"}, {"start": 35, "end": 38, "word": "3pm", "label": "TIME"}], "custom": {"index": 9, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 10, "end": 18, "word": "tomorrow", "label": "DATE"}, {"start": 22, "end": 31, "word": "McDonalds", "label": "ORG"}, {"start": 35, "end": 38, "word": "3pm", "label": "TIME"}], "custom": {"index": 9, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, Lets meet tomorrow at McDonalds at 3pm","custom":{"task":"NER","module":"intent_question","index":10}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, Lets meet tomorrow at McDonalds at 3pm", "custom": {"index": 10, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, Lets meet tomorrow at McDonalds at 3pm", "custom": {"index": 10, "task": "NER", "module": "intent_question"}}
+(u'Lets', 4, 8, u'ORG')
+(u'tomorrow', 14, 22, u'DATE')
+(u'McDonalds', 26, 35, u'ORG')
+(u'3pm', 39, 42, u'TIME')
+Sending message to service manager: {"payload": {"result": [{"start": 4, "end": 8, "word": "Lets", "label": "ORG"}, {"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 10, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 4, "end": 8, "word": "Lets", "label": "ORG"}, {"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 10, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 4, "end": 8, "word": "Lets", "label": "ORG"}, {"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 10, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, lets meet tomorrow at McDonalds at 3pm","custom":{"task":"NER","module":"intent_question","index":11}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, lets meet tomorrow at McDonalds at 3pm", "custom": {"index": 11, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, lets meet tomorrow at McDonalds at 3pm", "custom": {"index": 11, "task": "NER", "module": "intent_question"}}
+(u'tomorrow', 14, 22, u'DATE')
+(u'McDonalds', 26, 35, u'ORG')
+(u'3pm', 39, 42, u'TIME')
+Sending message to service manager: {"payload": {"result": [{"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 11, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 11, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 11, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, lets meet tomorrow at McDonalds at 3pm","custom":{"task":"NER","module":"intent_question","index":0}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, lets meet tomorrow at McDonalds at 3pm", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, lets meet tomorrow at McDonalds at 3pm", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+(u'tomorrow', 14, 22, u'DATE')
+(u'McDonalds', 26, 35, u'ORG')
+(u'3pm', 39, 42, u'TIME')
+Sending message to service manager: {"payload": {"result": [{"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 14, "end": 22, "word": "tomorrow", "label": "DATE"}, {"start": 26, "end": 35, "word": "McDonalds", "label": "ORG"}, {"start": 39, "end": 42, "word": "3pm", "label": "TIME"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+Traceback (most recent call last):
+Server got SIGINT from pid 0, uid 0; shutting down...
+  File "microservices/nlu/nlu.py", line 70, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+Shutting down client connections...
+        self._poller.poll()
+self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+        events = self._poll.poll(self._get_next_deadline())
+events = self._poll.poll(self._get_next_deadline())
+KeyboardInterruptKeyboardInterrupt
+
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hello","custom":{"task":"NER","module":"intent_question","index":0}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hello", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hello", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Sending message to service manager: {"payload": {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"This is a first complain","custom":{"task":"NER","module":"intent_question","index":0}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "This is a first complain", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "This is a first complain", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+(u'first', 10, 15, u'ORDINAL')
+Sending message to service manager: {"payload": {"result": [{"start": 10, "end": 15, "word": "first", "label": "ORDINAL"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 10, "end": 15, "word": "first", "label": "ORDINAL"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 10, "end": 15, "word": "first", "label": "ORDINAL"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"New QUestions","custom":{"task":"NER","module":"intent_question","index":0}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "New QUestions", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "New QUestions", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Sending message to service manager: {"payload": {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"Hi, allow me this ","custom":{"task":"NER","module":"intent_question","index":0}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "Hi, allow me this ", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "Hi, allow me this ", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Sending message to service manager: {"payload": {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 70, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Server got SIGINT from pid 0, uid 0; shutting down...
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"This is a first question","custom":{"task":"NER","module":"intent_question","index":0}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "This is a first question", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "This is a first question", "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+(u'first', 10, 15, u'ORDINAL')
+Sending message to service manager: {"payload": {"result": [{"start": 10, "end": 15, "word": "first", "label": "ORDINAL"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [{"start": 10, "end": 15, "word": "first", "label": "ORDINAL"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [{"start": 10, "end": 15, "word": "first", "label": "ORDINAL"}], "custom": {"index": 0, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"Hello when can we meet","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting "]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting "], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hello when can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting "], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hello when can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Sending message to service manager: {"payload": {"result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"When can we meet","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting "]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting "], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "When can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting "], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "When can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Sending message to service manager: {"payload": {"result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"task":"NER","statement":"When can we meet","custom":{"task":"NER","module":"intent_question","index":3}}}'
+Sending to service: nlu
+Sending message: {"task": "NER", "statement": "When can we meet", "custom": {"index": 3, "task": "NER", "module": "intent_question"}}
+Received a new request: {"task": "NER", "statement": "When can we meet", "custom": {"index": 3, "task": "NER", "module": "intent_question"}}
+Sending message to service manager: {"payload": {"result": [], "custom": {"index": 3, "task": "NER", "module": "intent_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": [], "custom": {"index": 3, "task": "NER", "module": "intent_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": [], "custom": {"index": 3, "task": "NER", "module": "intent_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"can we meet","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Found a better match Score: 0.9032296010030186 , matched: When can we meet
+Sending message to service manager: {"payload": {"result": {"action": {}, "response": "Yes sure. At what time would you like to meet"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": {"action": {}, "response": "Yes sure. At what time would you like to meet"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": {"action": {}, "response": "Yes sure. At what time would you like to meet"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"When can we meet","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "When can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "When can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Found a better match Score: 1.0000000111503062 , matched: When can we meet
+Sending message to service manager: {"payload": {"result": {"action": {}, "response": "Yes sure. At what time would you like to meet"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": {"action": {}, "response": "Yes sure. At what time would you like to meet"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": {"action": {}, "response": "Yes sure. At what time would you like to meet"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"Hello, how are you","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hello, how are you", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hello, how are you", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Found a better match Score: 0.931461465187301 , matched: hi, how are you
+Sending message to service manager: {"payload": {"result": {"action": {}, "response": "Hello sir, how can we help you?"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"result": {"action": {}, "response": "Hello sir, how can we help you?"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"result": {"action": {}, "response": "Hello sir, how can we help you?"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+  File "microservices/nlu/nlu.py", line 31
+    return answer
+         ^
+IndentationError: expected an indented block
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"Hi there, when can we meet","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Sending message to service manager: {"payload": {"server": {"task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"server": {"task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"custom": {"task": "BOT_RESPOND", "module": "bot_question"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "server": {"task": "BOT_RESPOND", "success": "false", "statement": "Hi there, when can we meet"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"Hi there, when can we meet","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Sending message to service manager: {"payload": {"server": {"task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"server": {"task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"custom": {"task": "BOT_RESPOND", "module": "bot_question"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "server": {"task": "BOT_RESPOND", "success": "false", "statement": "Hi there, when can we meet"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"Hi there, when can we meet","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Sending message to service manager: {"payload": {"server": {"task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"server": {"task": "BOT_RESPOND", "statement": "Hi there, when can we meet", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"custom": {"task": "BOT_RESPOND", "module": "bot_question"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "server": {"task": "BOT_RESPOND", "success": "false", "statement": "Hi there, when can we meet"}}
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 74, in <module>
+    channel.start_consuming()
+      File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Server got SIGINT from pid 0, uid 0; shutting down...
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+  File "microservices/nlu/nlu.py", line 74, in <module>
+        channel.start_consuming()channel.start_consuming()
+
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+Server got SIGINT from pid 0, uid 0; shutting down...
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 74, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    Server got SIGINT from pid 0, uid 0; shutting down...
+channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 74, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Server got SIGINT from pid 0, uid 0; shutting down...
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+        self.connection.process_data_events(time_limit=None)
+self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+        self._flush_output(common_terminator)
+self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+        self._impl.ioloop.poll()
+self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+        self._poller.poll()
+self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+        events = self._poll.poll(self._get_next_deadline())
+events = self._poll.poll(self._get_next_deadline())
+KeyboardInterruptKeyboardInterrupt
+
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 74, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Server got SIGINT from pid 0, uid 0; shutting down...
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Listening for intracluster connections on port 29015
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Server got SIGINT from pid 0, uid 0; shutting down...
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 74, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+Listening for intracluster connections on port 29015
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 74, in <module>
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+        channel.start_consuming()channel.start_consuming()
+
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Server got SIGINT from pid 0, uid 0; shutting down...
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+Service Manager Started
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+ [*] Waiting for messages. To exit press CTRL+C
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"What ever","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "What ever", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "What ever", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Sending message to service manager: {"payload": {"server": {"task": "BOT_RESPOND", "statement": "What ever", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"server": {"task": "BOT_RESPOND", "statement": "What ever", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"custom": {"task": "BOT_RESPOND", "module": "bot_question"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "server": {"task": "BOT_RESPOND", "success": "false", "statement": "What ever"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"Something Studpu","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Something Studpu", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Something Studpu", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Sending message to service manager: {"payload": {"server": {"task": "BOT_RESPOND", "statement": "Something Studpu", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"server": {"task": "BOT_RESPOND", "statement": "Something Studpu", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"custom": {"task": "BOT_RESPOND", "module": "bot_question"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "server": {"task": "BOT_RESPOND", "success": "false", "statement": "Something Studpu"}}
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"Something stupid","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Something stupid", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Something stupid", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Sending message to service manager: {"payload": {"server": {"task": "BOT_RESPOND", "statement": "Something stupid", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"server": {"task": "BOT_RESPOND", "statement": "Something stupid", "success": "false"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"custom": {"task": "BOT_RESPOND", "module": "bot_question"}, "result": {"action": {}, "response": "Sorry, I cant understand your question, I am still learning"}, "server": {"task": "BOT_RESPOND", "success": "false", "statement": "Something stupid"}}
+Server got SIGINT from pid 0, uid 0; shutting down...
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 74, in <module>
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+Shutting down client connections...
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+        events = self._poll.poll(self._get_next_deadline())
+events = self._poll.poll(self._get_next_deadline())
+KeyboardInterruptKeyboardInterrupt
+
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/nlu/nlu.py`[39m
+[33m[nodemon] 1.14.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `python -u microservices/serviceManager/servicemanager.py`[39m
+Service Manager Started
+ [*] Waiting for messages. To exit press CTRL+C
+NLU Service Started
+ [*] Waiting for messages. To exit press CTRL+C
+Running rethinkdb 2.3.5~0vivid (GCC 4.9.2)...
+Running on Linux 3.19.0-84-generic x86_64
+Loading data from directory /home/coder/Projects/rewox/rethinkdb_data
+Listening for intracluster connections on port 29015
+Listening for client driver connections on port 28015
+Listening for administrative HTTP connections on port 8080
+Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+Server ready, "coder_HP_15_Notebook_PC_v6e" 31b45f44-a7a8-4f4e-8750-edab775d57f3
+warn: Problem when checking for new versions of RethinkDB: HTTP request to update.rethinkdb.com failed.
+ [x] Payload received:  '{"service":"nlu","payload":{"statement":"Hello","task":"BOT_RESPOND","custom":{"task":"BOT_RESPOND","module":"bot_question"},"intents":[{"answers":[{"isEntityBased":true,"statement":"This is the updated answer"}],"entities":["ordinal"],"id":"2b80a1f9-385d-474c-b2e7-86c5a5da51a5","name":"Test_intent","questions":["This is a first question","This is a <mark data-entity=\'ordinal\'>first</mark> question","Something stupid"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[],"entities":["ordinal"],"id":"16943c32-572c-4f31-bec3-8a969387833f","name":"complain","questions":[]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Hello sir, how can we help you?"}],"entities":[],"id":"671d7d33-733b-439f-a153-6e44f98f51b5","name":"welcome","questions":["Hello","How are yo","Hi","hi, how are you","Hi there","Are you there","Salam"]},{"action":{"name":"","params":[{"entity_name":"","isRequired":true,"name":"","value":""}]},"answers":[{"isEntityBased":true,"statement":"Yes sure. At what time would you like to meet"}],"entities":["cardinal","time"],"id":"389bcc25-55d1-4b90-91a2-62d1481295b9","name":"meeting","questions":["Hi, can we meet at 9am","Hello, let have a meeting at 12pm tomorrow","Can we have a meeting ","When can we meet","When can we meet"]},{"answers":[],"entities":["date","time"],"id":"e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74","name":"test_intent","questions":[]}]}}'
+Sending to service: nlu
+Sending message: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question", "Something stupid"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hello", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Received a new request: {"intents": [{"entities": ["ordinal"], "questions": ["This is a first question", "This is a <mark data-entity='ordinal'>first</mark> question", "Something stupid"], "id": "2b80a1f9-385d-474c-b2e7-86c5a5da51a5", "answers": [{"statement": "This is the updated answer", "isEntityBased": true}], "name": "Test_intent"}, {"name": "complain", "answers": [], "entities": ["ordinal"], "questions": [], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "16943c32-572c-4f31-bec3-8a969387833f"}, {"name": "welcome", "answers": [{"statement": "Hello sir, how can we help you?", "isEntityBased": true}], "entities": [], "questions": ["Hello", "How are yo", "Hi", "hi, how are you", "Hi there", "Are you there", "Salam"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "671d7d33-733b-439f-a153-6e44f98f51b5"}, {"name": "meeting", "answers": [{"statement": "Yes sure. At what time would you like to meet", "isEntityBased": true}], "entities": ["cardinal", "time"], "questions": ["Hi, can we meet at 9am", "Hello, let have a meeting at 12pm tomorrow", "Can we have a meeting ", "When can we meet", "When can we meet"], "action": {"params": [{"isRequired": true, "value": "", "name": "", "entity_name": ""}], "name": ""}, "id": "389bcc25-55d1-4b90-91a2-62d1481295b9"}, {"entities": ["date", "time"], "questions": [], "id": "e1b957f1-a5a1-4dd3-899f-ef2ec7af3c74", "answers": [], "name": "test_intent"}], "task": "BOT_RESPOND", "statement": "Hello", "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}
+Found a better match Score: 0.999999971871986 , matched: Hello
+Sending message to service manager: {"payload": {"server": {}, "result": {"action": {}, "response": "Hello sir, how can we help you?"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}
+ [x] Payload received:  '{"payload": {"server": {}, "result": {"action": {}, "response": "Hello sir, how can we help you?"}, "custom": {"task": "BOT_RESPOND", "module": "bot_question"}}, "service": "backend"}'
+Sending to service: backend
+Sending message: {"custom": {"task": "BOT_RESPOND", "module": "bot_question"}, "result": {"action": {}, "response": "Hello sir, how can we help you?"}, "server": {}}
+Traceback (most recent call last):
+  File "microservices/nlu/nlu.py", line 74, in <module>
+    channel.start_consuming()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+Traceback (most recent call last):
+  File "microservices/serviceManager/servicemanager.py", line 35, in <module>
+    events = self._poll.poll(self._get_next_deadline())
+    channel.start_consuming()KeyboardInterrupt
+
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 1780, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 707, in process_data_events
+    self._flush_output(common_terminator)
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/blocking_connection.py", line 455, in _flush_output
+    self._impl.ioloop.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 245, in poll
+    self._poller.poll()
+  File "/usr/local/lib/python2.7/dist-packages/pika/adapters/select_connection.py", line 923, in poll
+    events = self._poll.poll(self._get_next_deadline())
+KeyboardInterrupt
+Server got SIGINT from pid 0, uid 0; shutting down...
+Shutting down client connections...
+All client connections closed.
+Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+Storage engine shut down.

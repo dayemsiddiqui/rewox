@@ -6,6 +6,7 @@ import VeeValidate from 'vee-validate'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
 import App from './App.vue'
+import { store } from './store/store'
 
 // Plugins
 import GlobalComponents from './gloablComponents'
@@ -45,6 +46,7 @@ const router = new VueRouter({
 
 /* eslint-disable no-new */
 new Vue({
+  store: store,
   el: '#app',
   render: h => h(App),
   router
