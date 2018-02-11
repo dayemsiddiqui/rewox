@@ -2,11 +2,10 @@
   <div>
     <!--Stats cards-->
     <div class="row">
-    <ChatBox />
     <div class="col-sm-8">
+        <ChatBox />
         <input type="text" placeholder="Ask a question" v-model="question" style="width: 100%;">
     </div>
-    <button class="btn btn-primary btn-sm" v-on:click="send" v-on:keyup.enter.native="send">Send</button>
     </div>
     <br> 
 

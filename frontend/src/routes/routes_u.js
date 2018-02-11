@@ -11,6 +11,7 @@ import Training from 'src/components/Dashboard/Training.vue'
 import Dashboard from 'src/components/Dashboard/Dashboard.vue'
 import Chatbot from 'src/components/Dashboard/Chatbot.vue'
 import Review from 'src/components/Dashboard/Review/Review.vue'
+import Annotator from 'src/components/Dashboard/Annotator.vue'
 
 // Transactions
 import Transaction from 'src/components/Dashboard/Transactions/Transaction.vue'
@@ -81,6 +82,11 @@ let woxcut = {
       path: 'review',
       name: 'Review Responder',
       component: Review,
+    },
+    {
+      path: 'annotator',
+      name: 'Annotator',
+      component: Annotator,
     }
   ]
 }

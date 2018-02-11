@@ -34,9 +34,14 @@ export default [
     icon: 'ti-world',
     path: '/integration'
   },
+  // {
+  //   name: 'Settings',
+  //   icon: 'ti-money',
+  //   path: '/settings'
+  // },
   {
-    name: 'Settings',
+    name: 'Annotator',
     icon: 'ti-money',
-    path: '/settings'
+    path: '/annotator'
   }
 ]
