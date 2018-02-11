@@ -5,7 +5,10 @@ var r = require('rethinkdbdash')({
 const entities = Router()
 
 entities.get('/', (req, res) => {
-  	res.json({status: 'success', payload:[{intent_name: 'Dummy Intent'}]})
+	r.table('entities').run().then((result) => {
+		res.json({status: 'success', payload: result})
+  	})	
+  	
 })
 
 entities.post('/save', (req, res) => {

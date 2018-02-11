@@ -16,12 +16,16 @@ print "NLU Service Started"
 rq = 'nlu'
 sq = 'service_manager'
 
-def ner(sentence):
+def ner(sentence, keywords):
 	doc = nlp(sentence)
 	entities = []
+	# print keywords
 	for ent in doc.ents:
 		entities.append({"word": ent.text, "start": ent.start_char, "end": ent.end_char, "label": ent.label_})
-		print(ent.text, ent.start_char, ent.end_char, ent.label_)
+		# print(ent.text, ent.start_char, ent.end_char, ent.label_)
+	words = sentence.split(" ")
+	# for word in words:
+	# 	print word
 	return entities
 
 def bot_reply(sentence, intents):
@@ -46,7 +50,7 @@ def callback(ch, method, properties, body):
 	payload = json.loads(body)
 	custom =  payload['custom']
 	if payload['task'] == 'NER':
-		result = ner(payload['statement'])
+		result = ner(payload['statement'], payload['entities'])
 		message = {"payload": {"result": result, "custom": custom}}
 		respond(message)
 	if payload['task'] == 'BOT_RESPOND':

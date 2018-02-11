@@ -1,5 +1,11 @@
-# WoxCut
-Analyse, Respond and Automate your business social profiles.
+# ReWox
+NLP Engine For ChatBot
+
+Why is it better than other tools:
+==================================
+
+- Graph Node Editor Based Bots
+- Sentiment Analysis
 
 Services we need to run:
 

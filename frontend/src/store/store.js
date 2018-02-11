@@ -6,7 +6,9 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
 	state: {
 		isIntentUpdate: false,
-		intent: {}
+		intent: {},
+		isEntityUpdate: false,
+		entity: {},
 	},
 	mutations: {
 		storeIntent(state, intent){
@@ -16,6 +18,14 @@ export const store = new Vuex.Store({
 		removeIntent(state){
 			state.isIntentUpdate = false
 			state.intent = {}
-		}
+		},
+		storeEntity(state, entity){
+			state.isEntityUpdate = true
+			state.entity = entity
+		},
+		removeEntity(state){
+			state.isEntityUpdate = false
+			state.entity = {}
+		},
 	}
 })

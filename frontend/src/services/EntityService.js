@@ -2,10 +2,7 @@ import api from './api'
 
 export default  {
   fetchEntities () {
-    return api().get('entities').then((res, err) => {
-    	console.log("Response", res.data)
-    	console.log("Error", err)
-    })
+    return api().get('entities')
   },
   saveEntities (payload) {
     return api().post('entities/save', payload).then((res, err) => {

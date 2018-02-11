@@ -17,17 +17,12 @@
   <div class="row">
   <div class="col-sm-8">
       <label>Entities</label>
-      <div class="card">
+      <div class="card" v-for="entity in entities">
         <div class="card-content">
-          @artist
+          <router-link :to="{ path: 'entities' }" v-on:click.native="storeEntity(entity)">{{ entity.entity_name }}</router-link>
         </div>
       </div>
-      <div class="card">
-        <div class="card-content">
-          @restaurant
-        </div>
-      </div>
-      <button class="btn btn-primary" style="width: 100%;"> New Entity</button>
+      <router-link :to="{ path: 'entities'}"><button class="btn btn-primary" style="width: 100%;"> New Entity</button></router-link>
   </div>
   </div>
 
@@ -41,6 +36,7 @@
   import StatsCard from 'src/components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from 'src/components/UIComponents/Cards/ChartCard.vue'
   import IntentService from 'src/services/IntentService.js'
+  import EntityService from 'src/services/EntityService.js'
   // import Loading from 'src/components/Dashboard/Layout/LoadingMainPanel.vue'
 
   /*
@@ -69,6 +65,7 @@
          withIconsOn: true,
        },
        intents: [],
+       entities: [],
       }
     },
 
@@ -79,12 +76,18 @@
            console.log("Error", err)
            this.intents = res.data.payload
          })
+      EntityService.fetchEntities().then((res, err) => {
+        this.entities = res.data.payload
+      })
       
     },
 
     methods: {
       storeIntent(intent){
         this.$store.commit('storeIntent', intent)
+      },
+      storeEntity(entity){
+        this.$store.commit('storeEntity', entity)
       }
     }
 

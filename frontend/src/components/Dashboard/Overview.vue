@@ -19,15 +19,19 @@
 
     <div class="row">
       <br>
-      <div class="col-sm-8">
-          <div class="card" v-for="item in views">
-            <div class="card-content" >
-              <div class="entities" v-html="item">
-              {{ item }}
+      <div class="row" v-for="(item, index) in views">
+        <div class="col-sm-8" style="margin-left: 15px;">
+            <div class="card">
+              <div class="card-content" >
+                <div class="entities" v-html="item">
+                {{ item }}
+                </div>
               </div>
             </div>
-          </div>
+        </div>
+        <button class="btn btn-danger btn-sm" style="margin-top:12px;" v-on:click="payload.questions.splice(index, 1); views.splice(index, 1);">Remove</button>  
       </div>
+      
     </div>
 
     <div class="row">
@@ -74,8 +78,9 @@
     <div class="row">
       <br>
       <div class="col-sm-8">
-          <div class="card" v-for="item in payload.answers">
+          <div class="card" v-for="(item, index) in payload.answers">
             <div class="card-content">
+            <button class="btn btn-danger btn-xs" v-on:click="payload.answers.splice(index, 1)">Remove</button>
               {{ item.statement }}
             </div>
           </div>
@@ -92,9 +97,6 @@
   </div>
 </template>
 <script>
-  import CircleChartCard from 'src/components/UIComponents/Cards/CircleChartCard.vue'
-  import StatsCard from 'src/components/UIComponents/Cards/StatsCard.vue'
-  import ChartCard from 'src/components/UIComponents/Cards/ChartCard.vue'
   import IntentService from 'src/services/IntentService.js'
   import EntityService from 'src/services/EntityService.js'
   // import Loading from 'src/components/Dashboard/Layout/LoadingMainPanel.vue'
@@ -116,10 +118,6 @@
     //   }
     // },
     components: {
-      StatsCard,
-      ChartCard,
-      CircleChartCard
-      // WorldMap
     },
     /**
      * Chart data used to render stats, charts. Should be replaced with server data

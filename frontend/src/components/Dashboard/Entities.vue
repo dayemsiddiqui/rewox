@@ -4,7 +4,7 @@
     <!--Stats cards-->
     <div class="row">
     <div class="col-sm-8">
-        <input type="text" placeholder="Entity Name" v-model="entity_name" v-on:change="onChange" style="width: 100%;">
+        <input type="text" placeholder="Entity Name" v-model="payload.entity_name" style="width: 100%;">
     </div>
         <button class="btn btn-primary btn-sm" v-on:click="onSave"> Save </button>
     </div>
@@ -20,7 +20,7 @@
     <div class="row">
       <br>
       <div class="col-sm-8">
-          <div class="card" v-for="item in values">
+          <div class="card" v-for="item in payload.values">
             <div class="card-content">
               {{item}}
             </div>
@@ -41,9 +41,6 @@
   </div>
 </template>
 <script>
-  import CircleChartCard from 'src/components/UIComponents/Cards/CircleChartCard.vue'
-  import StatsCard from 'src/components/UIComponents/Cards/StatsCard.vue'
-  import ChartCard from 'src/components/UIComponents/Cards/ChartCard.vue'
   import EntityService from 'src/services/EntityService.js'
   // import Loading from 'src/components/Dashboard/Layout/LoadingMainPanel.vue'
 
@@ -57,44 +54,35 @@
   
   export default {
     components: {
-      StatsCard,
-      ChartCard,
-      CircleChartCard
-      // WorldMap
     },
     /**
      * Chart data used to render stats, charts. Should be replaced with server data
      */
     data () {
       return {
-        switches: {
-         defaultOn: true,
-         plainOn: true,
-         withIconsOn: true,
-       },
-       entity_name: "",
-       values: [],
        value_name: "",
-       payload: {},
+       payload: {
+        entity_name: "",
+        values: [],
+       },
       }
+    },
+    mounted: function(){
+      console.log("Dashboard Just Mounted", this.$store.state.isEntityUpdate)
+      if (this.$store.state.isEntityUpdate == true){
+        this.payload = this.$store.state.entity
+      }
+    },
+    destroyed: function(){
+      this.$store.commit('removeEntity')
     },
     methods: {
       addEntity: function(event){
-        this.values.push(this.value_name)
+        this.payload.values.push(this.value_name)
         this.value_name = ""
-        this.payload = {
-          entity_name: this.entity_name,
-          values: this.values,
-        }
       },
       removeValue: function(label){
         alert(label)
-      },
-      onChange: function(){
-        this.payload = {
-          entity_name: this.entity_name,
-          values: this.values,
-        }
       },
       onSave: function(){
         EntityService.saveEntities(this.payload)
@@ -107,9 +95,6 @@
           type: 'success'  // info | success | warning | danger
         })
         this.payload = ""
-        this.entity_name = ""
-        this.values = []
-
       }
     } 
   }
