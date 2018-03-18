@@ -1,15 +1,19 @@
 <template>
   <div>
-  <div class="row">
-  <div class="col-sm-8">
-      <label>Intents</label>
-      <div class="card" v-for="intent in intents">
-        <div class="card-content">
-          <router-link :to="{ path: 'intents' }" v-on:click.native="storeIntent(intent)">{{ intent.name }}</router-link>
+  <notifications transition-name="notification-list" transition-mode="out-in"></notifications>
+  <label>Intents</label>
+  <div class="row" v-for="(intent, index) in intents">
+    <div class="col-sm-8">
+        <div class="card">
+          <div class="card-content">
+            <router-link :to="{ path: 'intents' }" v-on:click.native="storeIntent(intent)">{{ intent.name }}</router-link>
+          </div>
         </div>
-      </div>
-      <router-link :to="{ name: 'intents', params: { readOnly: true } }"><button class="btn btn-primary" style="width: 100%;"> New Intent</button></router-link>
-  </div>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-danger btn-sm" style="margin-top:12px;" v-on:click="deleteIntent(intent, index);">Remove
+      </button>
+    </div>
   </div>
   <br>
   <br>
@@ -22,7 +26,6 @@
           <router-link :to="{ path: 'entities' }" v-on:click.native="storeEntity(entity)">{{ entity.entity_name }}</router-link>
         </div>
       </div>
-      <router-link :to="{ path: 'entities'}"><button class="btn btn-primary" style="width: 100%;"> New Entity</button></router-link>
   </div>
   </div>
 
@@ -64,7 +67,7 @@
          plainOn: true,
          withIconsOn: true,
        },
-       intents: [],
+       intents: [{name: 'Slide'}],
        entities: [],
       }
     },
@@ -88,6 +91,22 @@
       },
       storeEntity(entity){
         this.$store.commit('storeEntity', entity)
+      },
+      deleteIntent(intent, index){
+        IntentService.deleteIntent(intent).then((res, err) => {
+          if(res.data.status == 'success'){
+            this.intents.splice(index, 1);
+            this.$notify({
+              component: {
+                template: `<span>Intent has been deleted succesfully.</span>`
+              },
+              horizontalAlign: 'right', // right | center | left
+              verticalAlign: 'top', // top | bottom
+              type: 'success'  // info | success | warning | danger
+            })  
+          }
+        })
+        
       }
     }
 

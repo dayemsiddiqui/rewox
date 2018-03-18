@@ -29,6 +29,15 @@ intents.post('/save', (req, res) => {
 	})
 
 })
+
+intents.post('/delete', (req, res) => {
+	console.log("Request Payload", req.body)
+	r.table('intents').filter({name: req.body.name}).delete().run().then((result) => {
+		res.json({status: 'success', payload: result, msg: "Intent deleted successfully"})
+	})
+
+})
+
  return intents
 }
 

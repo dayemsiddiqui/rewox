@@ -1,7 +1,7 @@
 import spacy
 from random import randint
 
-THRESHOLD = .90	
+THRESHOLD = .85	
 def getSimilar(nlp, question, qlist):
 	doc = nlp(question)
 	docset = []

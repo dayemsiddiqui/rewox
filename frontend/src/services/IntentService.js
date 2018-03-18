@@ -22,5 +22,8 @@ export default  {
         })
   
     })
-  }
+  },
+  deleteIntent (intent) {
+    return api().post('intents/delete', intent)
+  },
 }
